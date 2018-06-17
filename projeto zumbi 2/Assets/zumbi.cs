@@ -39,6 +39,10 @@ public class zumbi : MonoBehaviour {
 
 			morreu ();
 
+		} else {
+
+			danosofrido = 0;
+
 		}
 
 

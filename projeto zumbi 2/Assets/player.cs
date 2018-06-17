@@ -42,6 +42,7 @@ public class player : MonoBehaviour {
 		movimentacao ();
 		combate ();
 		cameracontrol ();
+		LevelUp ();
 
 
 //		Debug.Log (movendo);		
@@ -53,13 +54,19 @@ public class player : MonoBehaviour {
 
 		if (level == 1 && Exp >= Exp1) {
 
-			Exp = 0;
+			//Exp = 0;
 			level++;
 
 		}
 
 		if (level == 2 && Exp >= Exp2) {
-			Exp = 0;
+			//Exp = 0;
+			level++;
+
+		}
+
+		if (level == 3 && Exp >= Exp3) {
+
 			level++;
 
 		}
@@ -154,13 +161,14 @@ public class player : MonoBehaviour {
 
 	void cameracontrol(){if(Time.timeScale != 0){
 
-			if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0) {
+			if (Input.GetAxis ("Horizontal")  != 0 || Input.GetAxis ("Vertical") != 06) {
 
 				cameraSeguePlayer = false;
 
 			}
 
 			if (Input.GetKeyDown (KeyCode.Space)) {
+
 
 				cameraSeguePlayer = true; 
 
