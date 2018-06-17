@@ -161,7 +161,7 @@ public class player : MonoBehaviour {
 
 	void cameracontrol(){if(Time.timeScale != 0){
 
-			if (Input.GetAxis ("Horizontal")  != 0 || Input.GetAxis ("Vertical") != 06) {
+			if (Input.GetAxis ("Horizontal")  != 0 || Input.GetAxis ("Vertical") != 0) {
 
 				cameraSeguePlayer = false;
 
