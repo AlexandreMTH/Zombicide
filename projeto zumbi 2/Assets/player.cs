@@ -19,7 +19,13 @@ public class player : MonoBehaviour {
 	public int CamdisMin, CamdisMax;
 	float mousewheel;
 	float thisX, thisZ;
-	public static int PontosDeAcao = 3;
+	public static int PontosDeAcao = 3, level = 1;
+
+	[Tooltip ("xp nescessário para subir de level")]
+	public float Exp1, Exp2, Exp3;
+
+	public static float Exp;
+
 //	float camY;
 
 	void Start(){
@@ -41,6 +47,25 @@ public class player : MonoBehaviour {
 //		Debug.Log (movendo);		
 
 			}
+
+
+	void LevelUp(){
+
+		if (level == 1 && Exp >= Exp1) {
+
+			Exp = 0;
+			level++;
+
+		}
+
+		if (level == 2 && Exp >= Exp2) {
+			Exp = 0;
+			level++;
+
+		}
+
+	}
+
 
 	void movimentacao (){if(Time.timeScale != 0){
 
