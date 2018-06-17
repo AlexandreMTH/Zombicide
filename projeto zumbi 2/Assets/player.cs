@@ -8,16 +8,18 @@ public class player : MonoBehaviour {
 	bool movendo;
 	Vector3 mouse_pos,object_pos;
 	bool explorando;
-	public bool combateON, cameraSeguePlayer;
+	public bool cameraSeguePlayer;
+	public static bool combateON;
 	public Camera cam;
 	public GameObject posCam;
 	public NavMeshAgent jogador;
 	Vector3 posicaoAtual, curPos, lastPos;
 	float angle;
-	public Transform target;
+	//public Transform target;
 	public int CamdisMin, CamdisMax;
 	float mousewheel;
 	float thisX, thisZ;
+	public static int PontosDeAcao = 3;
 //	float camY;
 
 	void Start(){
@@ -118,26 +120,11 @@ public class player : MonoBehaviour {
 			// se o jogador estiver em modo de combate ele n sai da posicao
 		}
 
-		if (combateON) {
-			if (Input.GetMouseButton (0) && cooldown <= 0f) {
 
-				Debug.Log ("oi");
-				cooldown = 0.8f;
-
-			}
-
-			if (cooldown < 0) {
-
-				cooldown = 0;
-			}
 
 
 		}
-
-
-
-
-	}
+		
 
 
 	void cameracontrol(){if(Time.timeScale != 0){
@@ -162,7 +149,7 @@ public class player : MonoBehaviour {
 		//transforma a posicão da camera na posicao do objeto
 
 			mousewheel = Input.mouseScrollDelta.y;
-			Debug.Log(mousewheel);
+			//Debug.Log(mousewheel);
 
 			if (cameraSeguePlayer) {
 
