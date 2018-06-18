@@ -9,7 +9,8 @@ public class HUD : MonoBehaviour {
 
 	// Use this for initialization
 	public Text objetivos, pontosDeAcao, vidas;
-	public GameObject tiroExtra;
+	public GameObject tiroExtra, inventario;
+	static bool inventarioAtiva;
 	
 	void Start () {
 		
@@ -24,6 +25,15 @@ public class HUD : MonoBehaviour {
 		if (player.level == 3){
 
 			tiroExtra.SetActive(true);
+
+		}
+
+		if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I)){
+
+			print("INVENTÁRIO");
+			if (!inventarioAtiva) inventario.SetActive(!inventarioAtiva);	
+			else inventario.SetActive(!inventarioAtiva);
+			inventarioAtiva = !inventarioAtiva;
 
 		}
 	}
