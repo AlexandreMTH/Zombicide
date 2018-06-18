@@ -35,6 +35,10 @@ public class player : MonoBehaviour {
 	bool hasSearched;
 	public Image cardImageObj;
 
+	public GameObject[] coisasPraAtivarQuandoPegarMelee;
+	public GameObject[] coisasPraAtivarQuandoPegarRanged;
+	string weaponType;
+
 //	float camY;
 
 	void Start(){
@@ -66,15 +70,32 @@ public class player : MonoBehaviour {
 		
 	void Procura() {
 
-		if (Input.GetKeyDown(KeyCode.F) && PontosDeAcao >= 1 && !hasSearched) {
+		if (Input.GetKeyDown(KeyCode.F) /*&& PontosDeAcao >= 1 && !hasSearched*/) {
 			if (currentTile.name == "Interior") {
 				hasSearched = true;
 
-				cardImageObj.sprite = cartas [Random.Range (0, 5)].sprite;
+				int i = Random.Range (0, 5);
+
+				cardImageObj.sprite = cartas [i].sprite;
 				cardImageObj.transform.parent.gameObject.SetActive (true);
 				canMove = false;
 
 				StartCoroutine (SearchExitWait ());
+
+				if (cartas[i].type == "Melee") {
+					weaponType = "Melee";
+					for (int b = 0; b < coisasPraAtivarQuandoPegarMelee.Length; b++) {
+						coisasPraAtivarQuandoPegarMelee [b].SetActive (true);
+						coisasPraAtivarQuandoPegarRanged [2].SetActive (false);
+					}
+				} else if (cartas[i].type == "Ranged") {
+						weaponType = "Ranged";
+						for (int b = 0; b < coisasPraAtivarQuandoPegarRanged.Length; b++) {
+							coisasPraAtivarQuandoPegarRanged [b].SetActive (true);
+							coisasPraAtivarQuandoPegarMelee [2].SetActive (false);
+						}
+				}
+
 			} else {
 				print ("VC N PODE PDROCURAR ITEM PORRRA");
 			}
@@ -318,6 +339,16 @@ public class player : MonoBehaviour {
 
 		cardImageObj.transform.parent.gameObject.SetActive (false);
 		canMove = true;
+	}
+
+	public void SelecionaRanged() {
+		coisasPraAtivarQuandoPegarRanged [2].SetActive (true);
+		coisasPraAtivarQuandoPegarMelee [2].SetActive (false);
+	}
+
+	public void SelecionaMelee() {
+		coisasPraAtivarQuandoPegarRanged [2].SetActive (false);
+		coisasPraAtivarQuandoPegarMelee [2].SetActive (true);
 	}
 }
 
