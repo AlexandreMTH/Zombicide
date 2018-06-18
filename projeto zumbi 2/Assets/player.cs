@@ -38,6 +38,8 @@ public class player : MonoBehaviour {
 	public GameObject[] coisasPraAtivarQuandoPegarMelee;
 	public GameObject[] coisasPraAtivarQuandoPegarRanged;
 	string weaponType;
+	bool hasRanged;
+	bool hasMelee;
 
 //	float camY;
 
@@ -84,16 +86,18 @@ public class player : MonoBehaviour {
 
 				if (cartas[i].type == "Melee") {
 					weaponType = "Melee";
+					hasMelee = true;
 					for (int b = 0; b < coisasPraAtivarQuandoPegarMelee.Length; b++) {
 						coisasPraAtivarQuandoPegarMelee [b].SetActive (true);
 						coisasPraAtivarQuandoPegarRanged [2].SetActive (false);
 					}
 				} else if (cartas[i].type == "Ranged") {
-						weaponType = "Ranged";
-						for (int b = 0; b < coisasPraAtivarQuandoPegarRanged.Length; b++) {
-							coisasPraAtivarQuandoPegarRanged [b].SetActive (true);
-							coisasPraAtivarQuandoPegarMelee [2].SetActive (false);
-						}
+					weaponType = "Ranged";
+					hasRanged = true;
+					for (int b = 0; b < coisasPraAtivarQuandoPegarRanged.Length; b++) {
+						coisasPraAtivarQuandoPegarRanged [b].SetActive (true);
+						coisasPraAtivarQuandoPegarMelee [2].SetActive (false);
+					}
 				}
 
 			} else {
@@ -170,6 +174,12 @@ public class player : MonoBehaviour {
 
 	void combate(){
 
+		if (Input.GetKeyDown(KeyCode.Alpha1) && hasMelee) {
+			SelecionaMelee ();
+		} else if (Input.GetKeyDown(KeyCode.Alpha2) && hasRanged) {
+			SelecionaRanged ();
+		}
+
 		//float cooldown = 0;
 
 		if (Input.GetMouseButtonDown(1)){
@@ -179,7 +189,7 @@ public class player : MonoBehaviour {
 		}
 		//liga a boolean de combate
 
-		if (Input.GetMouseButtonUp(1)){
+		else if (Input.GetMouseButtonUp(1)){
 
 			combateON = false;
 
@@ -209,7 +219,7 @@ public class player : MonoBehaviour {
 
 
 
-		}
+	}
 		
 
 
