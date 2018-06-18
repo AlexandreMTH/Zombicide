@@ -74,7 +74,7 @@ public class player : MonoBehaviour {
 	}
 
 
-	void movimentacao (){if(Time.timeScale != 0){
+	void movimentacao (){if(Time.timeScale != 0 && PontosDeAcao > 0){
 
 
 
