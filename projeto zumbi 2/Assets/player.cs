@@ -241,21 +241,13 @@ public class player : MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll){
 
-
-		if (coll.gameObject.tag == "explorável") {
-
-			//coll = posCam.gameObject.transform.GetChild;
-			explorando = true;
-
-		}
 	}
 
 	void OnTriggerExit (Collider coll ){
 
-		if (coll.gameObject.tag == "explorável") {
+		if (coll.gameObject.tag == "gastaPA") {
 
-			//Debug.Log ("flws");
-			explorando = false;
+			PontosDeAcao--;
 
 		}
 
