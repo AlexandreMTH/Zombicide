@@ -9,6 +9,7 @@ public class HUD : MonoBehaviour {
 
 	// Use this for initialization
 	public Text objetivos, pontosDeAcao, vidas;
+	public GameObject tiroExtra;
 	
 	void Start () {
 		
@@ -19,5 +20,11 @@ public class HUD : MonoBehaviour {
 		objetivos.text = "OBJETIVOS COLETADOS: " + objetivoColetado + "/4";
 		pontosDeAcao.text = "PONTOS DE AÇÃO: " + player.PontosDeAcao + "/3";
 		vidas.text = "VIDAS: " + player.vidas + "/2";
+
+		if (player.level == 3){
+
+			tiroExtra.SetActive(true);
+
+		}
 	}
 }
