@@ -18,6 +18,8 @@ public class zumbi : MonoBehaviour {
 
 	Animator an;
 
+	bool hasSetup;
+
 	[Tooltip ("vida do zumbi dependendo do level do player")]
 	public float vidaPlayer1, vidaPlayer2, vidaPlayer3;
 
@@ -33,9 +35,14 @@ public class zumbi : MonoBehaviour {
 
 	void Update(){
 
+		print (ptsAcao);
+		
 		if (ptsAcao <= 0) {
 			onZombieTurn = false;
+			player.turno = "Player";
 			ptsAcao = pontosDeAcao;
+		} else if (player.turno == "Zumbis") {
+			onZombieTurn = true;
 		}
 
 		if (player.level == 1) {
@@ -57,6 +64,13 @@ public class zumbi : MonoBehaviour {
 		}
 
 
+	}
+
+	void InitialSetup () {
+		if (!hasSetup) {
+			ptsAcao = pontosDeAcao;
+			hasSetup = true;
+		}
 	}
 
 	public void SofreDano( float danosofrido){
@@ -89,7 +103,6 @@ public class zumbi : MonoBehaviour {
 	void OnTriggerExit (Collider coll ){
 
 		if (coll.gameObject.tag == "gastaPA") {
-
 			ptsAcao--;
 
 		}

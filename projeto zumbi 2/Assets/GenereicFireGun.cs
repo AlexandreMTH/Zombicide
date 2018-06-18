@@ -13,10 +13,8 @@ public class GenereicFireGun : MonoBehaviour {
 
 		if (player.combateON && player.PontosDeAcao >0) {
 			if (Input.GetMouseButtonDown (0) ) {
-
 				tiro ();
-
-
+				player.PontosDeAcao--;
 			}
 }
 }

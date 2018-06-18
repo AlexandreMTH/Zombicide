@@ -6,8 +6,11 @@ using UnityEngine.UI;
 
 public class player : MonoBehaviour {
 
+	static public string turno;
+
 	bool movendo = false;
 	bool canMove;
+	bool hasSetup;
 	Vector3 mouse_pos,object_pos;
 	bool explorando;
 	public bool cameraSeguePlayer;
@@ -22,6 +25,7 @@ public class player : MonoBehaviour {
 	float mousewheel;
 	float thisX, thisZ;
 	public static int PontosDeAcao = 3, level = 1, vidas = 2;
+	int pontosAcao = 3;
 
 	Animator an;
 	GameObject currentTile;
@@ -49,10 +53,26 @@ public class player : MonoBehaviour {
 		movendo = false;
 		an.SetBool ("Walking", false);
 		canMove = true;
+		turno = "Player";
+		PontosDeAcao = pontosAcao;
 	}
 
 
 	void Update () {
+
+		print (turno);
+
+		if (player.turno != "Player") {
+			canMove = false;
+			hasSetup = false;
+		} else {
+			InitialSetup ();
+		}
+			
+		if (player.PontosDeAcao <= 0) {
+			player.turno = "Zumbis";
+		}
+
 		utilidades ();
 		clicks.detectaclick ();
 
@@ -69,10 +89,20 @@ public class player : MonoBehaviour {
 
 	}
 
+
+	void InitialSetup () {
+		if (!hasSetup) {
+			PontosDeAcao = pontosAcao;
+			canMove = true;
+			hasSearched = false;
+			hasSetup = true;
+		}
+	}
+
 		
 	void Procura() {
 
-		if (Input.GetKeyDown(KeyCode.F) /*&& PontosDeAcao >= 1 && !hasSearched*/) {
+		if (Input.GetKeyDown(KeyCode.F) && PontosDeAcao >= 1 && !hasSearched && player.turno == "Player") {
 			if (currentTile.name == "Interior") {
 				hasSearched = true;
 
@@ -99,6 +129,8 @@ public class player : MonoBehaviour {
 						coisasPraAtivarQuandoPegarMelee [2].SetActive (false);
 					}
 				}
+
+				PontosDeAcao--;
 
 			} else {
 				print ("VC N PODE PDROCURAR ITEM PORRRA");
@@ -132,7 +164,7 @@ public class player : MonoBehaviour {
 	}
 
 
-	void movimentacao (){if(Time.timeScale != 0 && PontosDeAcao > 0){
+	void movimentacao (){if(Time.timeScale != 0){
 
 
 
