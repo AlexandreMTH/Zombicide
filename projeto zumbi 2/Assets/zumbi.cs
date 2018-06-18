@@ -8,8 +8,11 @@ public class zumbi : MonoBehaviour {
 	NavMeshAgent zombieAgent;
 
 	public GameObject playerObj;
+	player playerCode;
 
 	float vida;
+
+	public int pontosDeAcao = 2;
 
 	[Tooltip ("vida do zumbi dependendo do level do player")]
 	public float vidaPlayer1, vidaPlayer2, vidaPlayer3;
@@ -18,9 +21,15 @@ public class zumbi : MonoBehaviour {
 
 	void Start() {
 		zombieAgent = GetComponent<NavMeshAgent> ();
+		onZombieTurn = false;
+		playerCode = playerObj.GetComponent<player> ();
 	}
 
 	void Update(){
+
+		if (pontosDeAcao <= 0) {
+			onZombieTurn = false;
+		}
 
 		if (player.level == 1) {
 			vida = vidaPlayer1;
@@ -34,6 +43,8 @@ public class zumbi : MonoBehaviour {
 
 		if (onZombieTurn) {
 			zombieAgent.SetDestination (playerPos);
+		} else {
+			zombieAgent.SetDestination (transform.position);
 		}
 
 
@@ -65,5 +76,14 @@ public class zumbi : MonoBehaviour {
 
 
 	}
-		
+
+	void OnTriggerExit (Collider coll ){
+
+		if (coll.gameObject.tag == "gastaPA") {
+
+			pontosDeAcao--;
+
+		}
+
+	}		
 }
