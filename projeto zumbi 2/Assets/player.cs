@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class player : MonoBehaviour {
 
 	bool movendo = false;
+	bool canMove;
 	Vector3 mouse_pos,object_pos;
 	bool explorando;
 	public bool cameraSeguePlayer;
@@ -22,11 +24,16 @@ public class player : MonoBehaviour {
 	public static int PontosDeAcao = 3, level = 1, vidas = 2;
 
 	Animator an;
+	GameObject currentTile;
 
-	[Tooltip ("xp nescessário para subir de level")]
+	[Tooltip ("xp necessário para subir de level")]
 	public float Exp1, Exp2, Exp3;
 
 	public static float Exp;
+
+	public Cards[] cartas;
+	bool hasSearched;
+	public Image cardImageObj;
 
 //	float camY;
 
@@ -35,22 +42,45 @@ public class player : MonoBehaviour {
 		jogador = GetComponent <NavMeshAgent> ();
 		movendo = false;
 		an.SetBool ("Walking", false);
+		canMove = true;
 	}
 
 
 	void Update () {
 		utilidades ();
 		clicks.detectaclick ();
-		movimentacao ();
-		combate ();
+
+		if (canMove) {
+			movimentacao ();
+			combate ();
+		}
+
 		cameracontrol ();
 		LevelUp ();
-
+		Procura ();
 
 //		Debug.Log (movendo);		
 
 	}
+
 		
+	void Procura() {
+
+		if (Input.GetKeyDown(KeyCode.F) && PontosDeAcao >= 1 && !hasSearched) {
+			if (currentTile.name == "Interior") {
+				hasSearched = true;
+
+				cardImageObj.sprite = cartas [Random.Range (0, 5)].sprite;
+				cardImageObj.transform.parent.gameObject.SetActive (true);
+				canMove = false;
+
+				StartCoroutine (SearchExitWait ());
+			} else {
+				print ("VC N PODE PDROCURAR ITEM PORRRA");
+			}
+		}
+
+	}
 
 
 	void LevelUp(){
@@ -243,7 +273,11 @@ public class player : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider coll){
+		if (coll.gameObject.tag == "gastaPA") {
 
+			currentTile = coll.gameObject;
+
+		}
 	}
 
 	void OnTriggerExit (Collider coll ){
@@ -278,5 +312,12 @@ public class player : MonoBehaviour {
 
 	}
 
-		}
+
+	IEnumerator SearchExitWait () {
+		yield return new WaitForSeconds (2f);
+
+		cardImageObj.transform.parent.gameObject.SetActive (false);
+		canMove = true;
+	}
+}
 

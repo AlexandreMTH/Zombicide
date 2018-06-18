@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 54040098602903596}
   - component: {fileID: 114430115777773830}
   m_Layer: 8
-  m_Name: player
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1576,7 +1576,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1393901444152746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.5457, y: 0, z: 0}
+  m_LocalPosition: {x: 1.2, y: 0, z: 5.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4969203897741564}
@@ -2860,6 +2860,13 @@ MonoBehaviour:
   Exp1: 0
   Exp2: 0
   Exp3: 0
+  cartas:
+  - {fileID: 11400000, guid: 1ed70a0ac1764f5418302f3bdd56c45a, type: 2}
+  - {fileID: 11400000, guid: 26d230ac474440941b2551f7c125d359, type: 2}
+  - {fileID: 11400000, guid: 466790ae78e4cf64986dd3c74975468b, type: 2}
+  - {fileID: 11400000, guid: 1d4a4d482fac8f74aac5aca9d71bc403, type: 2}
+  - {fileID: 11400000, guid: 4960dfb7fe904ac4d9217cde725d0675, type: 2}
+  cardImageObj: {fileID: 0}
 --- !u!136 &136403234444480112
 CapsuleCollider:
   m_ObjectHideFlags: 1

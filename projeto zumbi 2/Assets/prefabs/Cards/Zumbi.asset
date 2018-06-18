@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cb94531402d2144a78d7ec7548c126, type: 3}
+  m_Name: Zumbi
+  m_EditorClassIdentifier: 
+  name: AAAAAAAAAAA
+  type: Zumbi
+  sprite: {fileID: 21300000, guid: efb680925a850db44840ffb0e845d854, type: 3}
