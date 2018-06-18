@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class player : MonoBehaviour {
 
-	bool movendo;
+	bool movendo = false;
 	Vector3 mouse_pos,object_pos;
 	bool explorando;
 	public bool cameraSeguePlayer;
@@ -21,6 +21,8 @@ public class player : MonoBehaviour {
 	float thisX, thisZ;
 	public static int PontosDeAcao = 3, level = 1, vidas = 2;
 
+	Animator an;
+
 	[Tooltip ("xp nescessário para subir de level")]
 	public float Exp1, Exp2, Exp3;
 
@@ -29,14 +31,14 @@ public class player : MonoBehaviour {
 //	float camY;
 
 	void Start(){
-
+		an = GetComponentInChildren<Animator> ();
 		jogador = GetComponent <NavMeshAgent> ();
-
+		movendo = false;
+		an.SetBool ("Walking", false);
 	}
 
 
 	void Update () {
-
 		utilidades ();
 		clicks.detectaclick ();
 		movimentacao ();
@@ -47,7 +49,8 @@ public class player : MonoBehaviour {
 
 //		Debug.Log (movendo);		
 
-			}
+	}
+		
 
 
 	void LevelUp(){
@@ -116,7 +119,7 @@ public class player : MonoBehaviour {
 
 	void combate(){
 
-		float cooldown = 0;
+		//float cooldown = 0;
 
 		if (Input.GetMouseButtonDown(1)){
 
@@ -136,7 +139,7 @@ public class player : MonoBehaviour {
 
 		if (combateON) {
 			
-
+			posicaoAtual = this.transform.position;
 					mouse_pos = Input.mousePosition;
 					//mouse_pos.z = 5.23; //The distance between the camera and object
 					object_pos = Camera.main.WorldToScreenPoint (transform.position);
@@ -262,10 +265,14 @@ public class player : MonoBehaviour {
 		if (curPos == lastPos) {
 
 			movendo = false;
+			an.SetBool ("Walking", false);
+
 		} else {
 
 			movendo = true;
+			an.SetBool ("Walking", true);
 		}
+
 		lastPos = curPos;
 		// detecta se o objeto está parado
 
