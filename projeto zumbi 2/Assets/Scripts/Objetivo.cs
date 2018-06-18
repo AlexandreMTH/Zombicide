@@ -8,6 +8,7 @@ public class Objetivo : MonoBehaviour {
 
 		if (col.tag == "Player"){
 			player.Exp += 5;
+			HUD.objetivoColetado +=1;
 			print(player.Exp);
 			Destroy(this.gameObject, 0.1f);
 		}

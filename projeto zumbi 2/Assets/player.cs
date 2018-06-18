@@ -19,7 +19,7 @@ public class player : MonoBehaviour {
 	public int CamdisMin, CamdisMax;
 	float mousewheel;
 	float thisX, thisZ;
-	public static int PontosDeAcao = 3, level = 1;
+	public static int PontosDeAcao = 3, level = 1, vidas = 2;
 
 	[Tooltip ("xp nescessário para subir de level")]
 	public float Exp1, Exp2, Exp3;
