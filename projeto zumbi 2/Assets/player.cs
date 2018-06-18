@@ -119,7 +119,7 @@ public class player : MonoBehaviour {
 
 	void combate(){
 
-		float cooldown = 0;
+		//float cooldown = 0;
 
 		if (Input.GetMouseButtonDown(1)){
 
@@ -139,7 +139,7 @@ public class player : MonoBehaviour {
 
 		if (combateON) {
 			
-
+			posicaoAtual = this.transform.position;
 					mouse_pos = Input.mousePosition;
 					//mouse_pos.z = 5.23; //The distance between the camera and object
 					object_pos = Camera.main.WorldToScreenPoint (transform.position);
