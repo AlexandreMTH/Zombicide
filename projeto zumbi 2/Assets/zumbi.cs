@@ -1,31 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class zumbi : MonoBehaviour {
+
+	NavMeshAgent zombieAgent;
+
+	public GameObject playerObj;
 
 	float vida;
 
 	[Tooltip ("vida do zumbi dependendo do level do player")]
 	public float vidaPlayer1, vidaPlayer2, vidaPlayer3;
 
+	public bool onZombieTurn;
+
+	void Start() {
+		zombieAgent = GetComponent<NavMeshAgent> ();
+	}
+
 	void Update(){
 
 		if (player.level == 1) {
 			vida = vidaPlayer1;
-
-		}
-
-		if (player.level == 2) {
-
+		}	else if (player.level == 2) {
 			vida = vidaPlayer2;
-
+		}	else if (player.level >= 3) {
+			vida = vidaPlayer3;
 		}
 
-		if (player.level >= 3) {
+		Vector3 playerPos = playerObj.transform.position;
 
-			vida = vidaPlayer3;
-
+		if (onZombieTurn) {
+			zombieAgent.SetDestination (playerPos);
 		}
 
 
@@ -37,7 +45,7 @@ public class zumbi : MonoBehaviour {
 
 		if (vida <= 0) {
 
-			morreu ();
+			Morreu ();
 
 		} else {
 
@@ -50,7 +58,7 @@ public class zumbi : MonoBehaviour {
 	}
 
 
-	void morreu(){
+	void Morreu(){
 
 		Debug.Log ("zumbi morreu");
 		player.Exp++;
