@@ -5,17 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour {
 
+	public int fase;
+
 	public GameObject fimFase;
 
 	void OnTriggerEnter(Collider col){
 
 		if (col.tag == "Player"){
+			if (fase == 1){
+				if (HUD.objetivoColetado >= 4){ //falta saber se tem zumbi na área
+					StartCoroutine(WaitForTheEnd());				
+				}
+			}
 
-			if (HUD.objetivoColetado >= 4){ //falta saber se tem zumbi na área
-				StartCoroutine(WaitForTheEnd());				
+			if (fase == 2){
+
+
 			}
 		}
-
 	}
 
 	IEnumerator WaitForTheEnd(){

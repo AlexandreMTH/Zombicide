@@ -27,6 +27,8 @@ public class player : MonoBehaviour {
 	public static int PontosDeAcao = 3, level = 1, vidas = 2;
 	int pontosAcao = 3;
 
+	public Text turnoTxt;
+
 	Animator an;
 	GameObject currentTile;
 
@@ -70,6 +72,7 @@ public class player : MonoBehaviour {
 		}
 			
 		if (player.PontosDeAcao <= 0) {
+			turnoTxt.text = "TURNO DOS ZUMBIS";
 			player.turno = "Zumbis";
 		}
 
@@ -92,6 +95,7 @@ public class player : MonoBehaviour {
 
 	void InitialSetup () {
 		if (!hasSetup) {
+			turnoTxt.text = "SEU TURNO";
 			PontosDeAcao = pontosAcao;
 			canMove = true;
 			hasSearched = false;
