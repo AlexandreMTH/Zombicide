@@ -13,7 +13,7 @@ public class Exit : MonoBehaviour {
 
 		if (col.tag == "Player"){
 			if (fase == 1){
-				if (HUD.objetivoColetado >= 4){ //falta saber se tem zumbi na área
+				if (HUD.objetivoColetado >= 4 && !VerificaZumbi.temZumbi){
 					StartCoroutine(WaitForTheEnd());				
 				}
 			}
