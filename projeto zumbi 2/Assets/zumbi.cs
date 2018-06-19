@@ -37,7 +37,7 @@ public class zumbi : MonoBehaviour {
 
 		print (ptsAcao);
 		
-		if (ptsAcao <= 0) {
+		if (ptsAcao <= 1) {
 			onZombieTurn = false;
 			player.turno = "Player";
 			ptsAcao = pontosDeAcao;

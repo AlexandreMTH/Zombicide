@@ -267,7 +267,7 @@ public class player : MonoBehaviour {
 
 			}
 
-			if (Input.GetKeyDown (KeyCode.Space)) {
+			if (Input.GetKeyDown (KeyCode.Space) || movendo) {
 
 
 				cameraSeguePlayer = true; 

@@ -2974,7 +2974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb871df7aca95964f805de7a669431af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObj: {fileID: 0}
+  playerObj: {fileID: 1393901444152746, guid: 23ecc00342751a546ac93f9953d539a4, type: 2}
   pontosDeAcao: 2
   vidaPlayer1: 1
   vidaPlayer2: 3
