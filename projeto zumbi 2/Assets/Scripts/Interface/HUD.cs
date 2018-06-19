@@ -11,6 +11,8 @@ public class HUD : MonoBehaviour {
 	public Text objetivos, pontosDeAcao, vidas;
 	public GameObject tiroExtra, inventario;
 	static bool inventarioAtiva;
+
+	public Slider xpSlider; 
 	
 	void Start () {
 		
@@ -36,5 +38,14 @@ public class HUD : MonoBehaviour {
 			inventarioAtiva = !inventarioAtiva;
 
 		}
+
+		BarraDeXP();
+
+	}
+
+	void BarraDeXP(){
+		
+		xpSlider.value = player.Exp;
+
 	}
 }

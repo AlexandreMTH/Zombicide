@@ -3103,10 +3103,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 1736747059846802}
+  - {fileID: 0}
   coisasPraAtivarQuandoPegarRanged:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 1285524576114304}
+  - {fileID: 0}
 --- !u!136 &136403234444480112
 CapsuleCollider:
   m_ObjectHideFlags: 1
