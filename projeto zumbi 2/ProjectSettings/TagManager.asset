@@ -6,6 +6,7 @@ TagManager:
   tags:
   - gastaPA
   - porta
+  - zumbi
   layers:
   - Default
   - TransparentFX
