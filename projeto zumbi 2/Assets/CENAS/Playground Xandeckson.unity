@@ -2846,6 +2846,11 @@ Prefab:
       propertyPath: coisasPraAtivarQuandoPegarRanged.Array.data[1]
       value: 
       objectReference: {fileID: 1368385072}
+    - target: {fileID: 114430115777773830, guid: 23ecc00342751a546ac93f9953d539a4,
+        type: 2}
+      propertyPath: turnoTxt
+      value: 
+      objectReference: {fileID: 1786379954}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23ecc00342751a546ac93f9953d539a4, type: 2}
   m_IsPrefabParent: 0
@@ -3725,6 +3730,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4286488713681892, guid: 81bce8fa7d0befb41839be9eaa197f8e,
     type: 2}
   m_PrefabInternal: {fileID: 1759840549}
+--- !u!114 &1786379954 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114141761055766562, guid: fa277ec4239943442a9c968b20c41d58,
+    type: 2}
+  m_PrefabInternal: {fileID: 1270482724}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1803620161
 GameObject:
   m_ObjectHideFlags: 0
