@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class genericMeleeWeapon : MonoBehaviour {
 
-
-	public BoxCollider areadano;
+	float timer;
+	//public float tempomax;
+	public GameObject areadano;
+	public bool quebraporta;
+	public static bool dandodano;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,13 +16,41 @@ public class genericMeleeWeapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		print ("dano melee" + dandodano);
 
 		if (player.combateON) {
 
 
+			if (player.meleeSelecionado) {
+
+				if (player.PontosDeAcao > 0) {
+					if (Input.GetMouseButtonDown (0)) {
+						player.PontosDeAcao -= 1;
+						areadano.SetActive (true);
+						dandodano = true;
+					}
+				}
+
+
+		
+			}
+		}
+
+		if (dandodano) {
+			timer += Time.deltaTime;
+
 
 
 		}
-		
-	}
+
+		if (timer >= 0.1f && dandodano == true) {
+
+			dandodano = false;
+			areadano.SetActive (false);
+			timer = 0;
+
+		}
+}
+
+
 }

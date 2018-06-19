@@ -27,6 +27,8 @@ public class player : MonoBehaviour {
 	public static int PontosDeAcao = 3, level = 1, vidas = 2;
 	int pontosAcao = 3;
 
+	public static bool meleeSelecionado, rangedSelecionado;
+
 	public Text turnoTxt;
 
 	Animator an;
@@ -44,8 +46,8 @@ public class player : MonoBehaviour {
 	public GameObject[] coisasPraAtivarQuandoPegarMelee;
 	public GameObject[] coisasPraAtivarQuandoPegarRanged;
 	string weaponType;
-	bool hasRanged;
-	bool hasMelee;
+	public static bool hasRanged;
+	public static bool hasMelee;
 
 //	float camY;
 
@@ -388,11 +390,16 @@ public class player : MonoBehaviour {
 	}
 
 	public void SelecionaRanged() {
+		rangedSelecionado = true;
+		meleeSelecionado = false;
 		coisasPraAtivarQuandoPegarRanged [2].SetActive (true);
 		coisasPraAtivarQuandoPegarMelee [2].SetActive (false);
 	}
 
 	public void SelecionaMelee() {
+
+		rangedSelecionado = false;
+		meleeSelecionado = true;
 		coisasPraAtivarQuandoPegarRanged [2].SetActive (false);
 		coisasPraAtivarQuandoPegarMelee [2].SetActive (true);
 	}
