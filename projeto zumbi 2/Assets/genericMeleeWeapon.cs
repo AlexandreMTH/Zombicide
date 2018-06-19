@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class genericMeleeWeapon : MonoBehaviour {
 
+
+	public BoxCollider areadano;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +13,13 @@ public class genericMeleeWeapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (player.combateON) {
+
+
+
+
+		}
 		
 	}
 }
