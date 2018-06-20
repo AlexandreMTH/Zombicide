@@ -14,7 +14,7 @@ public class GenereicFireGun : MonoBehaviour {
 			if (player.combateON && player.PontosDeAcao > 0 && player.rangedSelecionado) {
 				if (Input.GetMouseButtonDown (0)) {
 					tiro ();
-					player.PontosDeAcao--;
+					//player.PontosDeAcao--;
 				}
 			}
 }
