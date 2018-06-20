@@ -16,7 +16,7 @@ public class danomelee : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter(Collider coll){
+	void OnTriggerStay(Collider coll){
 
 		if (coll.gameObject.tag == "porta") {
 			
