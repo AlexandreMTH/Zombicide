@@ -21,7 +21,7 @@ public class genericMeleeWeapon : MonoBehaviour {
 		if (player.combateON) {
 
 
-			if (player.meleeSelecionado) {
+			//if (player.meleeSelecionado) {
 
 				if (player.PontosDeAcao > 0) {
 					if (Input.GetMouseButtonDown (0)) {
@@ -29,7 +29,7 @@ public class genericMeleeWeapon : MonoBehaviour {
 						areadano.SetActive (true);
 						dandodano = true;
 					}
-				}
+			//	}
 
 
 		
