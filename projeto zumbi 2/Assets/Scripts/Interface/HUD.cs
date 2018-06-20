@@ -8,10 +8,10 @@ public class HUD : MonoBehaviour {
 	public static int objetivoColetado = 0; 
 
 	// Use this for initialization
-	public Text objetivos, pontosDeAcao, vidas;
+	public Text objetivos, pontosDeAcao, vidas, comida, agua, arroz;
 	public GameObject tiroExtra, inventario;
 	static bool inventarioAtiva;
-
+	public int fase;
 	public Slider xpSlider; 
 	
 	void Start () {
@@ -31,8 +31,6 @@ public class HUD : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I)){
-
-			print("INVENTÁRIO");
 			if (!inventarioAtiva) inventario.SetActive(!inventarioAtiva);	
 			else inventario.SetActive(!inventarioAtiva);
 			inventarioAtiva = !inventarioAtiva;
@@ -40,6 +38,35 @@ public class HUD : MonoBehaviour {
 		}
 
 		BarraDeXP();
+
+		if (fase == 1){
+
+			
+
+		}
+
+		if (fase == 2){
+			if (player.pegouComida){
+				comida.text = "Comida: 1/1";
+			}
+			else {
+				comida.text = "Comida: 0/1"; 
+			}
+
+			if (player.pegouAgua){
+				agua.text = "Água: 1/1";
+			}
+			else {
+				agua.text = "Água: 0/1"; 
+			}
+			if (player.pegouArroz){
+				arroz.text = "Arroz: 1/1";
+			}
+			else {
+				arroz.text = "Arroz: 0/1"; 
+			}
+
+		}
 
 	}
 
