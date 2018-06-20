@@ -20,6 +20,9 @@ public class Exit : MonoBehaviour {
 
 			if (fase == 2){
 
+				if(player.pegouAgua && player.pegouArroz && player.pegouComida && !VerificaZumbi.temZumbi){
+					StartCoroutine(WaitForTheEnd());	
+				}
 
 			}
 		}
