@@ -7,6 +7,8 @@ public class zumbi : MonoBehaviour {
 
 	NavMeshAgent zombieAgent;
 
+	GameObject currentTile;
+
 	GameObject playerObj;
 	player playerCode;
 
@@ -57,11 +59,25 @@ public class zumbi : MonoBehaviour {
 		Vector3 playerPos = playerObj.transform.position;
 
 		if (onZombieTurn) {
-			an.SetBool ("Walking", true);
-			if (zombieAgent.isStopped) {
-				zombieAgent.SetDestination (playerPos);
-				zombieAgent.isStopped = false;
+			
+			if (currentTile == playerCode.currentTile) {
+
+
+				an.Play ("Attack");
+
+				player.vidas--;
+				ptsAcao--;
+
+			} else {
+				
+				an.SetBool ("Walking", true);
+				if (zombieAgent.isStopped) {
+					zombieAgent.SetDestination (playerPos);
+					zombieAgent.isStopped = false;
+				}
+
 			}
+
 		} else {
 			an.SetBool ("Walking", false);
 			zombieAgent.isStopped = true;
@@ -104,6 +120,14 @@ public class zumbi : MonoBehaviour {
 
 	}
 
+	void OnTriggerEnter(Collider coll){
+		if (coll.gameObject.tag == "gastaPA") {
+
+			currentTile = coll.gameObject;
+
+		}
+	}
+
 	void OnTriggerExit (Collider coll ){
 
 		if (coll.gameObject.tag == "gastaPA") {
@@ -111,5 +135,12 @@ public class zumbi : MonoBehaviour {
 
 		}
 
-	}		
+	}	
+
+	IEnumerator Wait () {
+		yield return new WaitForSeconds (1f);
+
+		
+	}
+
 }
