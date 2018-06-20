@@ -20,6 +20,8 @@ public class genericMeleeWeapon : MonoBehaviour {
 	void Update () {
 		print ("dano melee" + dandodano);
 
+		areadano.SetActive (dandodano);
+
 		if (rodatimer) {
 			timer2 += Time.deltaTime;
 
@@ -43,7 +45,7 @@ public class genericMeleeWeapon : MonoBehaviour {
 					if (timer2 == 0) {
 						player.PA_Arma_melee -= 1;
 						rodatimer = true;
-						areadano.SetActive (true);
+						//areadano.SetActive (true);
 						dandodano = true;
 					}
 
@@ -59,8 +61,9 @@ public class genericMeleeWeapon : MonoBehaviour {
 			if (player.PA_Arma_melee <= 0 && player.PontosDeAcao > 0) {
 				if (Input.GetMouseButtonDown (0)) {
 					player.PontosDeAcao -= 1;
-					areadano.SetActive (true);
-					dandodano = true;
+					rodatimer = true;
+					//areadano.SetActive (true);
+					//dandodano = true;
 				}
 			}
 		}
@@ -75,7 +78,7 @@ public class genericMeleeWeapon : MonoBehaviour {
 		if (timer >= 0.1f && dandodano == true) {
 
 			dandodano = false;
-			areadano.SetActive (false);
+
 			timer = 0;
 
 		}
