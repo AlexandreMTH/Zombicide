@@ -61,6 +61,13 @@ public class player : MonoBehaviour {
 		canMove = true;
 		turno = "Player";
 		PontosDeAcao = pontosAcao;
+
+		weaponType = "Melee";
+		hasMelee = true;
+		for (int b = 0; b < coisasPraAtivarQuandoPegarMelee.Length; b++) {
+			coisasPraAtivarQuandoPegarMelee [b].SetActive (true);
+			coisasPraAtivarQuandoPegarRanged [2].SetActive (false);
+		}
 	}
 
 

@@ -38,6 +38,12 @@ public class zumbi : MonoBehaviour {
 
 	void Update(){
 
+		if (player.turno == "Player") {
+			onZombieTurn = false;
+			player.turno = "Player";
+			ptsAcao = pontosDeAcao;
+		}
+
 		print (ptsAcao);
 		
 		if (ptsAcao <= 0) {
@@ -71,10 +77,8 @@ public class zumbi : MonoBehaviour {
 			} else {
 				
 				an.SetBool ("Walking", true);
-				//if (zombieAgent.isStopped) {
-					zombieAgent.SetDestination (playerPos);
-					zombieAgent.isStopped = false;
-				//}
+				zombieAgent.SetDestination (playerPos);
+				zombieAgent.isStopped = false;
 
 			}
 
@@ -90,6 +94,7 @@ public class zumbi : MonoBehaviour {
 		if (!hasSetup) {
 			ptsAcao = pontosDeAcao;
 			hasSetup = true;
+			zombieAgent.isStopped = true;
 		}
 	}
 
