@@ -29,6 +29,7 @@ public class player : MonoBehaviour {
 	public static int  PA_Arma_melee;
 	public static bool meleeSelecionado, rangedSelecionado;
 
+	bool pegouComida, pegouAgua, pegouArroz;
 	public Text turnoTxt;
 
 	Animator an;
@@ -143,11 +144,11 @@ public class player : MonoBehaviour {
 
 				//EAE FELIPE KKKJKKKK É PRA MUDAR AQUI:
 				if (cartas[i].name == "Água") {
-					//AUMENTA O NÚMERO DE ÁGUAS COLETADAS (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+					pegouAgua = true;
 				} else if (cartas[i].name == "Comida") {
-					//AUMENTA O NÚMERO DE COMIDAS COLETADAS (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+					pegouComida = true;
 				} else if (cartas[i].name == "Arroz") {
-					//AUMENTA O NÚMERO DE ARROZ COLETADO (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+					pegouArroz = true;
 				}
 
 				PontosDeAcao--;
@@ -182,11 +183,11 @@ public class player : MonoBehaviour {
 
 			//E AQUI TAMBÉM KEK:
 			if (cartas[i].name == "Água") {
-				//AUMENTA O NÚMERO DE ÁGUAS COLETADAS (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+				pegouAgua = true;
 			} else if (cartas[i].name == "Comida") {
-				//AUMENTA O NÚMERO DE COMIDAS COLETADAS (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+				pegouComida = true;
 			} else if (cartas[i].name == "Arroz") {
-				//AUMENTA O NÚMERO DE ARROZ COLETADO (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+				pegouArroz = true;
 			}
 
 			PontosDeAcao--;
