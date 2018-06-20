@@ -18,7 +18,7 @@ public class genericMeleeWeapon : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		print ("dano melee" + dandodano);
+//		print ("dano melee" + dandodano);
 
 		areadano.SetActive (dandodano);
 

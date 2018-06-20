@@ -86,7 +86,7 @@ public class player : MonoBehaviour {
 
 		}
 
-		print (turno);
+//		print (turno);
 
 		if (player.turno != "Player") {
 			canMove = false;

@@ -7,7 +7,7 @@ public class zumbi : MonoBehaviour {
 
 	NavMeshAgent zombieAgent;
 
-	GameObject currentTile;
+	GameObject currentTile, currentTile2;
 
 	GameObject playerObj;
 	player playerCode;
@@ -19,7 +19,7 @@ public class zumbi : MonoBehaviour {
 	int ptsAcao;
 
 	Animator an;
-
+	float timer;
 	bool hasSetup;
 
 	[Tooltip ("vida do zumbi dependendo do level do player")]
@@ -34,12 +34,20 @@ public class zumbi : MonoBehaviour {
 		playerCode = playerObj.GetComponent<player> ();
 		an = GetComponentInChildren<Animator> ();
 		ptsAcao = pontosDeAcao;
+
 	}
 
 	void Update(){
+		
+//		if (currentTile != currentTile2) {
+//			ptsAcao--;
+//			Debug.Log ("zirigdushi");
+//		}
 
 		if (player.turno == "Player") {
 			onZombieTurn = false;
+			zombieAgent.SetDestination (this.transform.position);
+			timer = 0;
 			player.turno = "Player";
 			ptsAcao = pontosDeAcao;
 		}
@@ -52,15 +60,16 @@ public class zumbi : MonoBehaviour {
 			ptsAcao = pontosDeAcao;
 		} else if (player.turno == "Zumbis") {
 			onZombieTurn = true;
+			timer += Time.deltaTime;
 		}
 
-		if (player.level == 1) {
-			vida = vidaPlayer1;
-		}	else if (player.level == 2) {
-			vida = vidaPlayer2;
-		}	else if (player.level >= 3) {
-			vida = vidaPlayer3;
-		}
+//		if (player.level == 1) {
+//			vida = vidaPlayer1;
+//		}	else if (player.level == 2) {
+//			vida = vidaPlayer2;
+//		}	else if (player.level >= 3) {
+//			vida = vidaPlayer3;
+//		}
 
 		Vector3 playerPos = playerObj.transform.position;
 
@@ -74,7 +83,7 @@ public class zumbi : MonoBehaviour {
 				player.vidas--;
 				ptsAcao--;
 
-			} else {
+			} if (onZombieTurn) {
 				
 				an.SetBool ("Walking", true);
 				zombieAgent.SetDestination (playerPos);
@@ -82,9 +91,12 @@ public class zumbi : MonoBehaviour {
 
 			}
 
-		} else {
+		}  if(timer > 3f ) {
 			an.SetBool ("Walking", false);
+			//zombieAgent.SetDestination (this.transform.position);
 			zombieAgent.isStopped = true;
+			timer = 0;
+			ptsAcao--;
 		}
 
 
@@ -134,9 +146,10 @@ public class zumbi : MonoBehaviour {
 	}
 
 	void OnTriggerExit (Collider coll ){
+		//Debug.Log ("tchau");
 
 		if (coll.gameObject.tag == "gastaPA") {
-			ptsAcao--;
+			currentTile2 = coll.gameObject;
 
 		}
 
