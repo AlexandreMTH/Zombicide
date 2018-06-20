@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour {
 
@@ -9,7 +10,7 @@ public class HUD : MonoBehaviour {
 
 	// Use this for initialization
 	public Text objetivos, pontosDeAcao, vidas, comida, agua, arroz;
-	public GameObject tiroExtra, inventario;
+	public GameObject tiroExtra, inventario, morte;
 	static bool inventarioAtiva;
 	public int fase;
 	public Slider xpSlider; 
@@ -41,7 +42,7 @@ public class HUD : MonoBehaviour {
 
 		if (fase == 1){
 
-			
+
 
 		}
 
@@ -67,12 +68,24 @@ public class HUD : MonoBehaviour {
 			}
 
 		}
+		if (player.morreu){
+
+			morte.SetActive(true);
+			Time.timeScale = 0;			
+
+		}
 
 	}
 
 	void BarraDeXP(){
 		
 		xpSlider.value = player.Exp;
+
+	}
+
+	public void Menu(){
+
+		SceneManager.LoadScene("Menu");
 
 	}
 }
