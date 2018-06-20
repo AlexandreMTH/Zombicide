@@ -66,6 +66,19 @@ public class player : MonoBehaviour {
 
 	void Update () {
 
+		if (Input.GetMouseButtonDown(1)){
+
+			combateON = true;
+
+		}
+		//liga a boolean de combate
+
+		else if (Input.GetMouseButtonUp(1)){
+
+			combateON = false;
+
+		}
+
 		print (turno);
 
 		if (player.turno != "Player") {
@@ -301,18 +314,7 @@ public class player : MonoBehaviour {
 
 		//float cooldown = 0;
 
-		if (Input.GetMouseButtonDown(1)){
 
-			combateON = true;
-
-		}
-		//liga a boolean de combate
-
-		else if (Input.GetMouseButtonUp(1)){
-
-			combateON = false;
-
-		}
 		//desliga a boolean de combate
 
 

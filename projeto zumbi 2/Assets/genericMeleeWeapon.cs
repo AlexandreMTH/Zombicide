@@ -36,34 +36,34 @@ public class genericMeleeWeapon : MonoBehaviour {
 		if (player.combateON) {
 
 
-			//if (player.meleeSelecionado) {
-
-				if (player.PA_Arma_melee > 0) {
-
-					if (Input.GetMouseButtonDown (0)) {
-
-					if (timer2 == 0) {
-						player.PA_Arma_melee -= 1;
-						rodatimer = true;
-						//areadano.SetActive (true);
-						dandodano = true;
-					}
-
-				//	}
-				}
-
-
+//			if (player.meleeSelecionado) {
+//
+//				if (player.PA_Arma_melee > 0) {
+//
+//					if (Input.GetMouseButtonDown (0)) {
+//
+//					if (timer2 == 0) {
+//						player.PA_Arma_melee -= 1;
+//						rodatimer = true;
+//						//areadano.SetActive (true);
+//						dandodano = true;
+//					}
+//
+//				//	}
+//				}
 
 
 
-			}
+
+
+		//	}
 
 			if (player.PA_Arma_melee <= 0 && player.PontosDeAcao > 0) {
 				if (Input.GetMouseButtonDown (0)) {
 					player.PontosDeAcao -= 1;
 					rodatimer = true;
 					//areadano.SetActive (true);
-					//dandodano = true;
+					dandodano = true;
 				}
 			}
 		}
@@ -86,3 +86,4 @@ public class genericMeleeWeapon : MonoBehaviour {
 
 
 }
+//}
