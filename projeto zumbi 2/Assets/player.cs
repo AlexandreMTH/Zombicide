@@ -26,14 +26,13 @@ public class player : MonoBehaviour {
 	float thisX, thisZ;
 	public static int PontosDeAcao = 3, level = 1, vidas = 2;
 	int pontosAcao = 3;
-
+	public static int  PA_Arma_melee;
 	public static bool meleeSelecionado, rangedSelecionado;
 
 	public Text turnoTxt;
 
 	Animator an;
-	[HideInInspector]
-	public GameObject currentTile;
+	GameObject currentTile;
 
 	[Tooltip ("xp necessário para subir de level")]
 	public float Exp1, Exp2, Exp3;
@@ -60,13 +59,6 @@ public class player : MonoBehaviour {
 		canMove = true;
 		turno = "Player";
 		PontosDeAcao = pontosAcao;
-
-		weaponType = "Melee";
-		hasMelee = true;
-		for (int b = 0; b < coisasPraAtivarQuandoPegarMelee.Length; b++) {
-			coisasPraAtivarQuandoPegarMelee [b].SetActive (true);
-			coisasPraAtivarQuandoPegarRanged [2].SetActive (false);
-		}
 	}
 
 
@@ -133,7 +125,12 @@ public class player : MonoBehaviour {
 				StartCoroutine (SearchExitWait ());
 
 				if (cartas[i].type == "Melee") {
-					
+					weaponType = "Melee";
+					hasMelee = true;
+					for (int b = 0; b < coisasPraAtivarQuandoPegarMelee.Length; b++) {
+						coisasPraAtivarQuandoPegarMelee [b].SetActive (true);
+						coisasPraAtivarQuandoPegarRanged [2].SetActive (false);
+					}
 				} else if (cartas[i].type == "Ranged") {
 					weaponType = "Ranged";
 					hasRanged = true;
@@ -148,33 +145,42 @@ public class player : MonoBehaviour {
 			} else {
 				print ("VC N PODE PDROCURAR ITEM PORRRA");
 			}
-		} else if (Input.GetKeyDown(KeyCode.F) && PontosDeAcao >= 1 && player.turno == "Player") {
-			int i = Random.Range (0, 5);
-
-			cardImageObj.sprite = cartas [i].sprite;
-			cardImageObj.transform.parent.gameObject.SetActive (true);
-			canMove = false;
-
-			StartCoroutine (SearchExitWait ());
-
-			if (cartas[i].type == "Melee") {
-
-			} else if (cartas[i].type == "Ranged") {
-				weaponType = "Ranged";
-				hasRanged = true;
-				for (int b = 0; b < coisasPraAtivarQuandoPegarRanged.Length; b++) {
-					coisasPraAtivarQuandoPegarRanged [b].SetActive (true);
-					coisasPraAtivarQuandoPegarMelee [2].SetActive (false);
-				}
-			}
-
-			PontosDeAcao--;
 		}
 
 	}
 
 
 	void LevelUp(){
+
+		if (level >= 2 && turno != "Player" && PA_Arma_melee == 0) {
+			PA_Arma_melee += 1;
+
+		}
+
+		if (level >= 3 && turno != "Player" && PA_Arma_melee == 1) {
+			PA_Arma_melee += 1;
+
+		}
+
+		if (level >= 4 && pontosAcao == 3) {
+			pontosAcao++;
+
+		}
+
+		if (level >= 2 && turno != "Player") {
+			PA_Arma_melee += 1;
+
+		}
+
+		if (level >= 3 && turno != "Player") {
+			PA_Arma_melee += 1;
+
+		}
+
+		if (level >= 4 && turno != "Player") {
+			PontosDeAcao++;
+
+		}
 
 		if (level == 1 && Exp >= Exp1) {
 

@@ -5,7 +5,8 @@ using UnityEngine;
 public class Sirenes : MonoBehaviour {
 
 	public GameObject LuzVer, LuzAzul;
-	bool controleLuzVer = true, controleLuzAzul, sirene = true;
+	bool controleLuzVer = true, controleLuzAzul;
+	public bool sirene = true;
 	float timer;
 	public GameObject spawn;
 
@@ -17,7 +18,22 @@ public class Sirenes : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		spawn.SetActive (sirene);
+//		if (ObjetivoAzul.ativaSpawnAzul) {
+//
+//			spawn.SetActive (true);
+//
+//		}
+
+
+		if (sirene == true || ObjetivoAzul.ativaSpawnAzul == true) {
+
+			spawn.SetActive (true);
+		}
+		if (sirene == false && ObjetivoAzul.ativaSpawnAzul == false) {
+
+			spawn.SetActive (false);
+		}
+
 		LuzVer.SetActive (controleLuzVer);
 		LuzAzul.SetActive (controleLuzAzul);
 		if (sirene) {
