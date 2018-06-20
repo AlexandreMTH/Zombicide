@@ -74,6 +74,9 @@ public class player : MonoBehaviour {
 		}
 			
 		if (player.PontosDeAcao <= 0) {
+			canMove = false;
+			jogador.isStopped = false;
+			jogador.SetDestination (transform.position);
 			turnoTxt.text = "TURNO DOS ZUMBIS";
 			player.turno = "Zumbis";
 		}
@@ -97,6 +100,7 @@ public class player : MonoBehaviour {
 
 	void InitialSetup () {
 		if (!hasSetup) {
+			jogador.isStopped = false;
 			turnoTxt.text = "SEU TURNO";
 			PontosDeAcao = pontosAcao;
 			canMove = true;
