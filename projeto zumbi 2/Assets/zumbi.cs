@@ -91,7 +91,7 @@ public class zumbi : MonoBehaviour {
 
 			}
 
-		}  if(timer > 3f ) {
+		}  if(timer > 1.5f ) {
 			an.SetBool ("Walking", false);
 			//zombieAgent.SetDestination (this.transform.position);
 			zombieAgent.isStopped = true;

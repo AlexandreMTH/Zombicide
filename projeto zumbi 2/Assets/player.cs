@@ -39,7 +39,7 @@ public class player : MonoBehaviour {
 	[Tooltip ("xp necessário para subir de level")]
 	public float Exp1, Exp2, Exp3;
 
-	public static float Exp;
+	public static float Exp = 1;
 
 	public Cards[] cartas;
 	bool hasSearched;
