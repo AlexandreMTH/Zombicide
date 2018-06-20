@@ -35,7 +35,7 @@ public class SpawnZombie : MonoBehaviour {
 //			}
 			//if (random < 3)	{
 
-				Instantiate(zumbiNormal, transform.position, transform.rotation);
+			Instantiate(zumbiNormal, transform.position + Vector3.up * 3, transform.rotation);
 
 			//}
 

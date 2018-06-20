@@ -112,7 +112,7 @@ public class player : MonoBehaviour {
 		
 	void Procura() {
 
-		if (Input.GetKeyDown(KeyCode.F) && PontosDeAcao >= 1 && !hasSearched && player.turno == "Player") {
+		if (Input.GetKeyDown (KeyCode.F) && PontosDeAcao >= 1 && !hasSearched && player.turno == "Player") {
 			if (currentTile.name == "Interior") {
 				hasSearched = true;
 
@@ -124,14 +124,14 @@ public class player : MonoBehaviour {
 
 				StartCoroutine (SearchExitWait ());
 
-				if (cartas[i].type == "Melee") {
+				if (cartas [i].type == "Melee") {
 					weaponType = "Melee";
 					hasMelee = true;
 					for (int b = 0; b < coisasPraAtivarQuandoPegarMelee.Length; b++) {
 						coisasPraAtivarQuandoPegarMelee [b].SetActive (true);
 						coisasPraAtivarQuandoPegarRanged [2].SetActive (false);
 					}
-				} else if (cartas[i].type == "Ranged") {
+				} else if (cartas [i].type == "Ranged") {
 					weaponType = "Ranged";
 					hasRanged = true;
 					for (int b = 0; b < coisasPraAtivarQuandoPegarRanged.Length; b++) {
@@ -145,6 +145,32 @@ public class player : MonoBehaviour {
 			} else {
 				print ("VC N PODE PDROCURAR ITEM PORRRA");
 			}
+		} else if (Input.GetKeyDown (KeyCode.F) && PontosDeAcao >= 1 && player.turno == "Player" && currentTile.name == "Carro") {
+			int i = Random.Range (0, 5);
+
+			cardImageObj.sprite = cartas [i].sprite;
+			cardImageObj.transform.parent.gameObject.SetActive (true);
+			canMove = false;
+
+			StartCoroutine (SearchExitWait ());
+
+			if (cartas [i].type == "Melee") {
+				weaponType = "Melee";
+				hasMelee = true;
+				for (int b = 0; b < coisasPraAtivarQuandoPegarMelee.Length; b++) {
+					coisasPraAtivarQuandoPegarMelee [b].SetActive (true);
+					coisasPraAtivarQuandoPegarRanged [2].SetActive (false);
+				}
+			} else if (cartas [i].type == "Ranged") {
+				weaponType = "Ranged";
+				hasRanged = true;
+				for (int b = 0; b < coisasPraAtivarQuandoPegarRanged.Length; b++) {
+					coisasPraAtivarQuandoPegarRanged [b].SetActive (true);
+					coisasPraAtivarQuandoPegarMelee [2].SetActive (false);
+				}
+			}
+
+			PontosDeAcao--;
 		}
 
 	}
