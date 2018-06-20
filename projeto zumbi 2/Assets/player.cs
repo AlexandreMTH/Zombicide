@@ -422,7 +422,7 @@ public class player : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider coll){
-		if (coll.gameObject.tag == "gastaPA") {
+		if (coll.gameObject.tag == "gastaPA" || coll.name == "Carro") {
 
 			currentTile = coll.gameObject;
 
