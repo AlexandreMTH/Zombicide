@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d5bbef304197a4842bae497754943aff, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.26715684, g: 0.2520652, b: 0.23106802, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-43398
+  m_Name: pb_Mesh-10328
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -1001,11 +1001,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1006021978951686, guid: fa277ec4239943442a9c968b20c41d58,
     type: 2}
   m_PrefabInternal: {fileID: 1270482724}
---- !u!1 &496205434 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1393901444152746, guid: 23ecc00342751a546ac93f9953d539a4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1329208534}
 --- !u!1 &539624575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2823,6 +2818,11 @@ Prefab:
       objectReference: {fileID: 1425296451}
     - target: {fileID: 114430115777773830, guid: 23ecc00342751a546ac93f9953d539a4,
         type: 2}
+      propertyPath: turnoTxt
+      value: 
+      objectReference: {fileID: 1786379954}
+    - target: {fileID: 114430115777773830, guid: 23ecc00342751a546ac93f9953d539a4,
+        type: 2}
       propertyPath: cardImageObj
       value: 
       objectReference: {fileID: 2122992353}
@@ -2846,11 +2846,6 @@ Prefab:
       propertyPath: coisasPraAtivarQuandoPegarRanged.Array.data[1]
       value: 
       objectReference: {fileID: 1368385072}
-    - target: {fileID: 114430115777773830, guid: 23ecc00342751a546ac93f9953d539a4,
-        type: 2}
-      propertyPath: turnoTxt
-      value: 
-      objectReference: {fileID: 1786379954}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23ecc00342751a546ac93f9953d539a4, type: 2}
   m_IsPrefabParent: 0
@@ -3378,11 +3373,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114784177889473866, guid: de615705453345f4a876dab433071820,
-        type: 2}
-      propertyPath: playerObj
-      value: 
-      objectReference: {fileID: 496205434}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de615705453345f4a876dab433071820, type: 2}
   m_IsPrefabParent: 0

@@ -7,12 +7,12 @@ public class zumbi : MonoBehaviour {
 
 	NavMeshAgent zombieAgent;
 
-	public GameObject playerObj;
+	GameObject playerObj;
 	player playerCode;
 
 	float vida;
 
-	public int pontosDeAcao = 2;
+	public int pontosDeAcao = 1;
 
 	int ptsAcao;
 
@@ -28,6 +28,7 @@ public class zumbi : MonoBehaviour {
 	void Start() {
 		zombieAgent = GetComponent<NavMeshAgent> ();
 		onZombieTurn = false;
+		playerObj = GameObject.FindWithTag ("Player");
 		playerCode = playerObj.GetComponent<player> ();
 		an = GetComponentInChildren<Animator> ();
 		ptsAcao = pontosDeAcao;
@@ -37,7 +38,7 @@ public class zumbi : MonoBehaviour {
 
 		print (ptsAcao);
 		
-		if (ptsAcao <= 1) {
+		if (ptsAcao <= 0) {
 			onZombieTurn = false;
 			player.turno = "Player";
 			ptsAcao = pontosDeAcao;
@@ -57,10 +58,13 @@ public class zumbi : MonoBehaviour {
 
 		if (onZombieTurn) {
 			an.SetBool ("Walking", true);
-			zombieAgent.SetDestination (playerPos);
+			if (zombieAgent.isStopped) {
+				zombieAgent.SetDestination (playerPos);
+				zombieAgent.isStopped = false;
+			}
 		} else {
 			an.SetBool ("Walking", false);
-			zombieAgent.SetDestination (transform.position);
+			zombieAgent.isStopped = true;
 		}
 
 

@@ -24,7 +24,7 @@ public class SpawnZombie : MonoBehaviour {
 
 		}
 
-		if (player.turno != "Player" && criazumbi == true) {
+		if (player.turno == "Zumbis" && criazumbi == true) {
 
 			random = Random.Range (1, 5);
 //
