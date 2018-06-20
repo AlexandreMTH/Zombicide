@@ -33,9 +33,13 @@ public class Menu : MonoBehaviour {
 
 	public void Fase1(){
 		SceneManager.LoadScene("Fase A7");
+		player.vidas = 2;
+		player.morreu = false;
 	}
 
 	public void Fase2(){
 		SceneManager.LoadScene("Fase C12");
+		player.vidas = 2;
+		player.morreu = false;
 	}
 }
