@@ -33,7 +33,8 @@ public class player : MonoBehaviour {
 	public Text turnoTxt;
 
 	Animator an;
-	public static GameObject currentTile;
+	[HideInInspector]
+	public GameObject currentTile;
 
 	[Tooltip ("xp necessário para subir de level")]
 	public float Exp1, Exp2, Exp3;
