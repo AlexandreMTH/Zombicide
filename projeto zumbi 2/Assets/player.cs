@@ -29,7 +29,7 @@ public class player : MonoBehaviour {
 	public static int  PA_Arma_melee;
 	public static bool meleeSelecionado, rangedSelecionado;
 
-	bool pegouComida, pegouAgua, pegouArroz;
+	public static bool pegouComida, pegouAgua, pegouArroz;
 	public Text turnoTxt;
 
 	Animator an;
