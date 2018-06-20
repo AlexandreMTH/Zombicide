@@ -29,6 +29,8 @@ public class player : MonoBehaviour {
 	public static int  PA_Arma_melee;
 	public static bool meleeSelecionado, rangedSelecionado;
 
+	public static bool morreu;
+
 	public static bool pegouComida, pegouAgua, pegouArroz;
 	public Text turnoTxt;
 
@@ -72,6 +74,13 @@ public class player : MonoBehaviour {
 
 
 	void Update () {
+
+		if (vidas <= 0) {
+
+			morreu = true;
+
+
+		}
 
 		if (Input.GetMouseButtonDown(1)){
 
