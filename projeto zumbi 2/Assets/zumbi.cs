@@ -71,10 +71,10 @@ public class zumbi : MonoBehaviour {
 			} else {
 				
 				an.SetBool ("Walking", true);
-				if (zombieAgent.isStopped) {
+				//if (zombieAgent.isStopped) {
 					zombieAgent.SetDestination (playerPos);
 					zombieAgent.isStopped = false;
-				}
+				//}
 
 			}
 
