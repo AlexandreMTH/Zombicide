@@ -86,6 +86,7 @@ public class HUD : MonoBehaviour {
 	public void Menu(){
 
 		SceneManager.LoadScene("Menu");
+		player.vidas = 2;
 
 	}
 }
