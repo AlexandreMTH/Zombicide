@@ -140,6 +140,16 @@ public class player : MonoBehaviour {
 					}
 				}
 
+
+				//EAE FELIPE KKKJKKKK É PRA MUDAR AQUI:
+				if (cartas[i].name == "Água") {
+					//AUMENTA O NÚMERO DE ÁGUAS COLETADAS (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+				} else if (cartas[i].name == "Comida") {
+					//AUMENTA O NÚMERO DE COMIDAS COLETADAS (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+				} else if (cartas[i].name == "Arroz") {
+					//AUMENTA O NÚMERO DE ARROZ COLETADO (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+				}
+
 				PontosDeAcao--;
 
 			} else {
@@ -168,6 +178,15 @@ public class player : MonoBehaviour {
 					coisasPraAtivarQuandoPegarRanged [b].SetActive (true);
 					coisasPraAtivarQuandoPegarMelee [2].SetActive (false);
 				}
+			}
+
+			//E AQUI TAMBÉM KEK:
+			if (cartas[i].name == "Água") {
+				//AUMENTA O NÚMERO DE ÁGUAS COLETADAS (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+			} else if (cartas[i].name == "Comida") {
+				//AUMENTA O NÚMERO DE COMIDAS COLETADAS (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
+			} else if (cartas[i].name == "Arroz") {
+				//AUMENTA O NÚMERO DE ARROZ COLETADO (PERGUNTA PRA STELLA COMO TÁ CONTROLANDO ISSO
 			}
 
 			PontosDeAcao--;
